@@ -1,23 +1,20 @@
 import Head from 'next/head';
 
 export default function AppLayout({ children, title, description, home }) {
-  if (home) {
-    return (
-      <>
-        <Head>
-          <title>{title}</title>
-          <meta name="description" content={description} />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-        <header>
-          <nav>NAV HOME</nav>
-        </header>
-        <main>{children}</main>
-        <footer>Footer home</footer>
-      </>
-    );
-  }
-  return (
+  return home ? (
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <header>
+        <nav>NAV HOME</nav>
+      </header>
+      <main>{children}</main>
+      <footer>Footer home</footer>
+    </>
+  ) : (
     <>
       <Head>
         <title>{title}</title>
